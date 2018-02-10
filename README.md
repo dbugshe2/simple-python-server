@@ -2,7 +2,7 @@
 
 Welcome, this is an example project of the class assignment, below are instructions and explanations on how to get started with git and submit your code.
 
-__to get your own code on Github check the [How to get your code on Github section](##How-to-get-your-Code-on-Github), but you can skim through to see if there's any useful info.
+__to get your own code on Github check the [How to get your code on Github section](##How-to-get-your-Code-on-Github), but you can skim through to see if there's any useful info.__
 
 # Introduction
 
@@ -50,27 +50,36 @@ and it will create a folder called `simple-python-udp-socket-calculator` contain
 
 - __working with remote repos__: a remote repo is simply a copy of a local repo, on another computer that a local repo is linked to, and one project can have many different remote repos, if you clone a remote repo then the repo is added by default as one of your remote
 
-## How to Clone(download) a repo from Github
-
-
 ## How to get your Code on Github
-Suppose you have a folder `work` containing your program and you would like to put it on GitHub.
+Suppose you have a folder `work` containing your programs and you would like to put it on GitHub.
 
-1. You must have git installed (you can find links above)
-2. Sign-up on GitHub if you haven't. [Click here to got to the registration page](https://github.com/join) (Open this in another tab)
-3. create a repo by following these steps.
+1. __install git__ You must have git installed (you can find links above)
+2. __Create a local repo__ on your computer, open a command line, and navigate to the `work` folder, and make it a git repo by typing the command
+3. __Get a Github account__ Sign-up on GitHub if you haven't. [Click here to got to the registration page](https://github.com/join) (Open this in another tab)
+4. __Create a github repo__ create a repo by following these steps.
 	- click on the `+` icon at the top right and select 'new repository'<br>
 	![Image](https://ibb.co/mdWDfn "new repo menu")
 	- On the new repo page enter a name for the repo, seperating each word in the name with a hyphen `-` (all other information are optional)<br>
 	![Image](https://ibb.co/hKHfRS "repo name image")
 	- Finally Click the `Create repository` button<br>
 	- 	![Image](https://ibb.co/nCSQt7 "Create repo button")
-	- Back on your computer, open a command line, and navigate to the `work` folder, and make it a git repo by typing the command
-	- Now add your GitHub repo as a remote repo of the local repo you just initialized, using the `remote add` command as follows:
-	`git remote add origin https://github.com/dbugshe2/sample-repo.git`
-		- the word 'origin' is the name we chose to call the remote repo (you can name it anything you want)
-		- the url that follows is the url of the remote repo, which you can find on the repo page after you have created it (like the screenshot below):<br>
-		![Image]()
+5. Now add your GitHub repo as a remote repo of the local repo you just initialized, using the `remote add` command as follows:
+	
+		git remote add origin https://github.com/dbugshe2/sample-repo.git
+		
+- the word 'origin' is the name we chose to call the remote repo (you can name it anything you want)
+- the url that follows is the url of the remote repo, which you can find on the repo page after you have created it (like the screenshot below):<br>
+	
+	![Image]()
+- You can always check what remote repos you have by typing:
+	
+			git remote -V
+	
+- Assuming your `work` folder has these following files: 
+	+ server.py
+	+ client.py
+
+	
 
 ## more Information
 
