@@ -3,3 +3,5 @@ include/
 lib/
 pip-selfcheck.json
 
+*.backup
+
