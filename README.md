@@ -58,9 +58,9 @@ Suppose you have a folder `work` containing your programs and you would like to 
 3. __Get a Github account__ Sign-up on GitHub if you haven't. [Click here to got to the registration page](https://github.com/join) (Open this in another tab)
 4. __Create a github repo__ create a repo by following these steps.
 	- click on the `+` icon at the top right and select 'new repository'<br>
-	![Image](https://ibb.co/mdWDfn "new repo menu")
+	[Image](https://ibb.co/mdWDfn "new repo menu")
 	- On the new repo page enter a name for the repo, seperating each word in the name with a hyphen `-` (all other information are optional)<br>
-	![Image](https://ibb.co/hKHfRS "repo name image")
+	[Image](https://ibb.co/hKHfRS "repo name image")
 	- Finally Click the `Create repository` button<br>
 	- 	![Image](https://ibb.co/nCSQt7 "Create repo button")
 5. Now add your GitHub repo as a remote repo of the local repo you just initialized, using the `remote add` command as follows:
@@ -70,7 +70,7 @@ Suppose you have a folder `work` containing your programs and you would like to 
 - the word 'origin' is the name we chose to call the remote repo (you can name it anything you want)
 - the url that follows is the url of the remote repo, which you can find on the repo page after you have created it (like the screenshot below):<br>
 	
-	![Image]()
+	[Image](https://ibb.co/hurri7)
 - You can always check what remote repos you have by typing:
 	
 			git remote -V
