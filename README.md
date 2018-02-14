@@ -2,16 +2,18 @@
 
 Welcome, this is an example project of the class(CPT 411) assignment,plus instructions and explanations on how to get started with git and get your code on Github.
 
+if you notice any errors or if there's any confusing parts please point it out, that would be much appreciated.
+
 __Please note that this is just a small tutorial to help you get the Git part done, You should read more about Git on Your free time to learn more about how to use it in your projects.<br> There are some links to very good resources for learning both python and git at the bottom of this page.__
 
 # Table of Content
 
-- [What is Git?](What-is-Git?)
-- [How does Git work?](How-does-Git-work?)
-- [What is Github?](What-is-Github?)
-- [How to get Git](How-to-get-Git)
-- [Getting Started with Git](Getting-Started-with-Git)
-- []
+- [What is Git?](#What-is-Git?)
+- [How does Git work?](#How-does-Git-work?)
+- [What is Github?](#What-is-Github?)
+- [How to get Git](#How-to-get-Git)
+- [Getting Started with Git](#Getting-Started-with-Git)
+- [How to get your Code on Github](#How-to-get-your-Code-on-Github)
 
 # Introduction
 
@@ -25,7 +27,7 @@ It is primarily used for __source code management (SCM - as in git-scm.com)__ in
 
 __Important Use__:
 
-It keeps track of every change to the code in a special kind of database. If a mistake is made, developers can turn back the clock and compare earlier versions of the code to help fix the mistake while minimizing disruption to all team members.
+It keeps track of every change made to the code in a special kind of database. If a mistake is made, developers can turn back the clock and compare earlier versions of the code to help fix the mistake while minimizing disruption to all team members.
 
 
 __what is a repo?__:
@@ -47,9 +49,9 @@ Git is an example of a DVCS (Distributed Version Control System). Distributed me
 
 There are three major parts of a git project.
 
-- __The Working Directory__:
-- __The Staging Area__:
-- __The Repository__:
+- __The Working Directory__: your project folder
+- __The Staging Area__: a list of files that you want git to keep track of, all changes made to files in  the staging area can be save to your repo by committing them
+- __The Repository__: A special database that can save snapshots of all the files and folders in the staging area, which can later be restored.
 
 
 ## What is Github?
@@ -70,26 +72,28 @@ Once you've installed git, to check whether it was properly installed, type `git
 
 If you get an error,try installing git using the links above.
 
-- __what to do after installing__: After installing git, you need to do some important configuration, so open a command line or terminal(or git shell if you selected it).
+- __what to do after installing__: After installing git, you need to do some important configuration, so open a command line or terminal(or git bash if you selected it).
 	+ set your email address, using:
 		
 ```
 git config --global user.email "myemail@email.com"
 ```
 replace 'mymail@email.com' with your email address
+
 + set your user name, using:
 	
 ```
-	git config --global user.name "myusername"
+git config --global user.name "myusername"
 ```
-replace 'myusername' with a username of your choosing.
+
++ replace 'myusername' with a username of your choosing.
 
 - __create(initialize) a repo__: you can turn any folder/directory on your computer to a git repository by navigating to the folder in your command line/terminal/ git bash and enter the following:
 
 ```
 git init
 ```
-- __copy(clone) a repo__: cloning a repository means exactly what it suggests, it creates copies a remote repository to your computer,  to do this you need the URL of the repo you want to clone.
+- __copy(clone) a repo__: cloning a repository means exactly what it suggests, it creates a copy of a remote repository to your computer, to do this you need the URL of the repo you want to clone.
 
 **For example** to clone this repo, navigate to the folder you would like to clone it into through your command line or Terminal(Bash), and use the `git clone` command  like this:
 
@@ -98,8 +102,8 @@ git init
 and it will create a folder called `simple-python-udp-socket-calculator` containing all the files in this repo.
 
 
-- __working with remote repos__: a remote repo is simply a copy of a local repo, on another computer that a local repo is linked to, and one project can have many different remote repos.
-If you `clone` a remote repo, then the repo is added by default as one of your remote repos.
+- __working with remote repos__: a remote repo is simply a copy of a local repo, on another computer, and one project can have many different remote repos.
+If you `clone` a remote repo, then the cloned repo is added by default as one of your remote repos.
 
 ## How to get your Code on Github
 Suppose you have a folder `work` containing your programs and you would like to put it on GitHub. You can make this happen by following the steps below
@@ -113,29 +117,33 @@ __(When I say command line depending on your os or setup this might mean your 'c
 		- typing `cd` followed by space, then drag and drop the folder on the command line window, then hit 'enter'
 	- then make the folder a git repo by typing the command:
 		
-		``` 
-		git init
-		
-		```
+``` 
+git init
+```
 3. __add your files to your git staging area__: this simply means you want git to start keeping track of the files, you can tell git to keep track of your files by typing:
 
-``` git add <file1 name> <file2 name>
 ```
-__or you can simply use `.`(period) to add all the files in that folder using:
+ git add <file1 name> <file2 name>
+```
 
-```git add .
+or you can simply use `.`(period) to add all the files in that folder using:
+
+```
+git add .
 ```
 now git will keep track of all the changes you make to those files from this point onwards.
 
 4. __Prepare to commit your changes__: so now that you have git tracking all your changes, and lets say you've made some progress, or you've finished the program and you've tested it. now you want to save(commit) this current working version of your program to your repo. You add them to the list of changes to be committed, using the same add command.
 
-``` git add <file1 name> <file2 name>
+``` 
+git add <file1 name> <file2 name>
 ```
 
 5. __Save all your tracked changes(so far)__:
 Time to commit the changes, for this we use the `commit` command.
 
-``` git commit -m "create a calculator app"
+``` 
+git commit -m "create a calculator app"
 ```
 
 what this does is that it saves a snapshot(commit) of all the files that you're tracking, so that you can later go back to this snapshot or even send it to another repository.
@@ -144,20 +152,23 @@ __the text in quotes after the `-m` part of the command is the 'commit message' 
 
 6. __Get a Github account__ Sign-up on GitHub if you haven't. [Click here to got to the registration page](https://github.com/join) (Open this in another tab)
 
-7. __Create a github repo__ create a repo by following these steps.
+7. __Create a github repo__: create a repo by following these steps.
 	- click on the `+` icon at the top right and select 'new repository'<br>
 ![Image](new-repo.png?raw=true)
-	- On the new repo page enter a name for the repo, seperating each word in the name with a hyphen `-` (all other information are optional)<br>
+	- On the new repo page enter a name for the repo, separating each word in the name with a hyphen `-` (__leave all other option the way they are__)<br>
 ![Image](repo-name.png?raw=true)
 	- Finally Click the `Create repository` button<br>
 ![Image](create-repo-button.png?raw=true)
 
 8. __link(add) your remote GitHub repo to the local one__: Now add your GitHub repo as a remote repo of the local repo you just initialized, using the `remote add` command as follows:
 	
-```git remote add origin https://github.com/dbugshe2/sample-repo.git
+```
+git remote add origin https://github.com/dbugshe2/sample-repo.git
 ```	
-	- the word `origin` is the name we chose to call the remote repo (you can name it anything you want)
-	- the url that follows is the url of the remote repo, which you can find on the repo page after you have created it (like the screenshot below):<br>
+
+- the word `origin` is the name we chose to call the remote repo (you can name it anything you want)
+
+- the url that follows is the url of the remote repo, which you can find on the repo page after you have created it (like the screenshot below):<br>
 	
 ![Image](repo-url.png?raw=true)
 
@@ -176,8 +187,10 @@ back to the command line, and enter the `git push` command like below
 ```
 git push -u <remote name> master
 ```
-	- replace `<remote name>`with whatever name you chose for your remote repo in step 8
-	- `master` here simply refers to the default branch on a git repo, we don't need to worry about that now
+- replace `<remote name>`with whatever name you chose for your remote repo in step 8
+- `master` here simply refers to the default branch on a git repo.
+
+__That's it, if you have been able to complete all the steps, then you have successfully pushed your first git project on to github now go back to your repo (you can find it in your github account page), and you should be able to see your files__
 	
 
 
@@ -186,7 +199,10 @@ git push -u <remote name> master
 
 ### Best Online Resources and Books for Learning about Git
 
-- [Atlassian Git Tutorial](https://www.atlassian.com/git/tutorials)
+- __Best Online Git Tutorial__: [Atlassian Git Tutorial](https://www.atlassian.com/git/tutorials) (Online Tutorial)
+- __Best Book to learn Git__ [Pro Git Book](https://progit2.s3.amazonaws.com/en/2016-03-22-f3531/progit-en.1084.pdf) (PDF)
+- __Difference Between Git and GitHub in one Minute__: [What is the difference between Git and GitHub?](https://www.youtube.com/watch?v=xKVlZ3wFVKA) (Youtube)
+- __Online Git Video Tutorial__[Git and Github](https://www.youtube.com/watch?v=vR-y_2zWrIE&list=PLGvfHSgImk4aTlKBUPeC8Eh42LVDcSv9s)
 
 
 ### Best Online Resources and Books for Learning about Python
