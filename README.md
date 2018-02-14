@@ -8,12 +8,12 @@ __Please note that this is just a small tutorial to help you get the Git part do
 
 # Table of Content
 
-- [What is Git?](#What-is-Git?)
-- [How does Git work?](#How-does-Git-work?)
-- [What is Github?](#What-is-Github?)
+- [What is Git?](##What-is-Git?)
+- [How does Git work?](###How-does-Git-work?)
+- [What is Github?](##What-is-Github?)
 - [How to get Git](#How-to-get-Git)
-- [Getting Started with Git](#Getting-Started-with-Git)
-- [How to get your Code on Github](#How-to-get-your-Code-on-Github)
+- [Getting Started with Git](##Getting-Started-with-Git)
+- [How to get your Code on Github](##How-to-get-your-Code-on-Github)
 
 # Introduction
 
@@ -202,7 +202,7 @@ __That's it, if you have been able to complete all the steps, then you have succ
 - __Best Online Git Tutorial__: [Atlassian Git Tutorial](https://www.atlassian.com/git/tutorials) (Online Tutorial)
 - __Best Book to learn Git__ [Pro Git Book](https://progit2.s3.amazonaws.com/en/2016-03-22-f3531/progit-en.1084.pdf) (PDF)
 - __Difference Between Git and GitHub in one Minute__: [What is the difference between Git and GitHub?](https://www.youtube.com/watch?v=xKVlZ3wFVKA) (Youtube)
-- __Online Git Video Tutorial__[Git and Github](https://www.youtube.com/watch?v=vR-y_2zWrIE&list=PLGvfHSgImk4aTlKBUPeC8Eh42LVDcSv9s)
+- __Online Git Tutorial Videos__[Git and Github](https://www.youtube.com/watch?v=vR-y_2zWrIE&list=PLGvfHSgImk4aTlKBUPeC8Eh42LVDcSv9s) (Youtube)
 
 
 ### Best Online Resources and Books for Learning about Python
