@@ -8,12 +8,12 @@ __Please note that this is just a small tutorial to help you get the Git part do
 
 # Table of Content
 
-- [What is Git?](##What-is-Git?)
-- [How does Git work?](###How-does-Git-work?)
-- [What is Github?](##What-is-Github?)
-- [How to get Git](#How-to-get-Git)
-- [Getting Started with Git](##Getting-Started-with-Git)
-- [How to get your Code on Github](##How-to-get-your-Code-on-Github)
+- [What is Git?](##what-is-git?)
+- [How does Git work?](###how-does-git-work?)
+- [What is Github?](##what-is-github?)
+- [How to get Git](#how-to-get-git)
+- [Getting Started with Git](##getting-started-with-git)
+- [How to get your Code on Github](##how-to-get-your-code-on-github)
 
 # Introduction
 
