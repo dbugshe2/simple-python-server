@@ -1,6 +1,7 @@
+# Author: Shittu Maroof Ayotunde
 from socket import *
 
-serverPort = 220595 
+serverPort = 22595
 
 
 
@@ -27,7 +28,7 @@ def calculator(message): # the actual calculator function
     and returns the result of the operation on them
     """
     # here we split the message string back to a list
-    message = message.split(',') # the split function create a list(array)  from a string
+    message = message.split(' ') # the split function create a list(array)  from a string
     
     # we seperate the different parts of the message
     operator =  int(message[0]) 
@@ -50,9 +51,8 @@ def calculator(message): # the actual calculator function
     else:
         return ' error: no valid operation'
 
-while 1: 
-    
+while True:
     message, clientAddress = serverSocket.recvfrom(4096)
-    
     resultMessage = str(calculator(message))
     serverSocket.sendto(resultMessage, clientAddress)
+

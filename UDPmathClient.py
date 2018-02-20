@@ -3,7 +3,7 @@ from socket import *
 
 # this is the 'localhost' ip address which means the server is on the same machine
 serverName = '127.0.0.1'
-serverPort = 220595
+serverPort = 22595
 
 
 
@@ -16,10 +16,10 @@ operator = input("""
         WELCOME to my Math Server!! 
         What Operation would you like perform - ?       
                 [1] Addition
-                (2) Subtraction
-                (3) Multiplication 
-                (4) Division
-                (5) Modulus
+                [2] Subtraction
+                [3] Multiplication 
+                [4] Division
+                [5] Modulus
                 >>>_
                 """)
 # add it as a string to the first element of the 'message' list
@@ -36,8 +36,7 @@ message.append(operand2) # add the second one as well
 message = " ".join(message) 
 
 
-
 clientSocket.sendto(message, (serverName, serverPort))
 result, serverAddress = clientSocket.recvfrom(4096) 
-print ("the server returned " + result + "as the answer")
+print ("the server returned " + result + " as the answer")
 clientSocket.close()
