@@ -1,5 +1,6 @@
 # Author: Shittu Maroof Ayotunde 2014/1/50669CT
 from socket import *
+import math
 
 serverPort = 22595
 
@@ -15,11 +16,11 @@ print("The server is now running and is ready to recive")
 # this is the calculator code
 
 # these number stand for the operations we will be performing
-ADDITION = 1
-SUBTRACTION = 2
-MULTIPLICATION = 3
-DIVISION = 4
-MODULUS = 5
+SINE = 1
+COSINE = 2
+TANGENT = 3
+SQUARE_ROOT = 4
+FACTORIAL = 5
 
 def calculator(message): # the actual calculator function
     """
@@ -29,25 +30,24 @@ def calculator(message): # the actual calculator function
     """
     # here we split the message string back to a list
     message = message.split(' ') # the split function create a list(array)  from a string
-    
+
     # we seperate the different parts of the message
-    operator =  int(message[0]) 
-    operand1 = int(message[1])
-    operand2 = int(message[2])
-    
-    
+    operator =  int(message[0])
+    operand = int(message[1])
+
+
     # based what number the operator variable is we will perform the right operation
     # or else return some kind of error message
-    if(operator == ADDITION):
-        return operand1 + operand2
-    elif(operator == SUBTRACTION):
-        return operand1 - operand2
-    elif(operator == MULTIPLICATION):
-        return operand1 * operand2
-    elif(operator == DIVISION ):
-        return operand1 / operand2
-    elif(operator == MODULUS):
-        return operand1 % operand2
+    if(operator == SINE):
+        return math.sin(operand)
+    elif(operator == COSINE):
+        return math.cos(operand)
+    elif(operator ==  TANGENT):
+        return math.tan(operand)
+    elif(operator == SQUARE_ROOT ):
+        return math.sqrt(operand)
+    elif(operator == FACTORIAL):
+        return math.factorial(operand)
     else:
         return ' error: no valid operation'
 
@@ -56,4 +56,3 @@ while True:
     print("calculating the result for client "+ clientAddress)
     resultMessage = str(calculator(message))
     serverSocket.sendto(resultMessage, clientAddress)
-
