@@ -15,11 +15,11 @@ message = [] # this list(array) will be used to collect all the information we n
 operator = input("""
         WELCOME to my Math Server!!
         What Operation would you like perform - ?
-                [1] Addition
-                [2] Subtraction
-                [3] Multiplication
-                [4] Division
-                [5] Modulus
+                [1] Sine
+                [2] Cosine
+                [3] Tangent
+                [4] Square Root
+                [5] Factorial
                 >>>_
                 """)
 
