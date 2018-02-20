@@ -1,4 +1,4 @@
-# Author: Shittu Maroof Ayotunde
+# Author: Shittu Maroof Ayotunde 2014/1/50669CT
 from socket import *
 
 serverPort = 22595
@@ -10,7 +10,7 @@ serverSocket = socket(AF_INET, SOCK_DGRAM)
 
 
 serverSocket.bind(('', serverPort))
-print("The server is ready to recieve")
+print("The server is now running and is ready to recive")
 
 # this is the calculator code
 
@@ -53,6 +53,7 @@ def calculator(message): # the actual calculator function
 
 while True:
     message, clientAddress = serverSocket.recvfrom(4096)
+    print("calculating the result for client "+ clientAddress)
     resultMessage = str(calculator(message))
     serverSocket.sendto(resultMessage, clientAddress)
 

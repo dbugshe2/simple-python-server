@@ -2,7 +2,7 @@
 from socket import *
 
 # this is the 'localhost' ip address which means the server is on the same machine
-serverName = '127.0.0.1'
+serverName = '127.0.0.1' # this allows me to test it on my machine 
 serverPort = 22595
 
 
@@ -38,5 +38,5 @@ message = " ".join(message)
 
 clientSocket.sendto(message, (serverName, serverPort))
 result, serverAddress = clientSocket.recvfrom(4096) 
-print ("the server returned " + result + " as the answer")
+print ("the server says:>>> " + result)
 clientSocket.close()
