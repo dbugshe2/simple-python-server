@@ -6,3 +6,9 @@ __the original tutorial was written in python 2 can be found on the [aosp websit
 
 # How it's Structured
 This repo consists of -- branches, each branch is numbered in an inncreasing order each branch contains a more complex version of the previous one, each branch explains what has changed between the original tutorial and the new features that were added, and how ealier branches were changed.
+
+# Usage
+To run any of the different versions, clone the repo and check out to that branch
+*   To test:
+    *   Run `python server.py`.
+    *   Point browser at `http://localhost:8080/something/or/other`
