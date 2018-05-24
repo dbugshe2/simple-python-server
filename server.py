@@ -42,8 +42,8 @@ class RequestHandler(BaseHTTPRequestHandler):
 
     def send_page(self, page):
         self.send_response(200)
-        self.send_response("Content-Type", "text/html")
-        self.send_response("Content-Length", str(len(page)))
+        self.send_header("Content-Type", "text/html")
+        self.send_header("Content-Length", str(len(page)))
         self.end_headers()
         self.wfile.write(bytes(page, "utf-8"))
 
