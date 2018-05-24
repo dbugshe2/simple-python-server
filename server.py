@@ -14,12 +14,14 @@ class RequestHandler(BaseHTTPRequestHandler):
 '''
 
     # Handle a GET request
-    def do_GET(self):
+    def do_GET(self):  # This method is called when the HTTP method is GET
+        '''Overide of the do_GET() method in BaseRequestHandler
+        '''
         self.send_response(200)
         self.send_header("Content-Type", "text/html")
         self.send_header("Content-Length", str(len(self.Page)))
         self.end_headers()
-        self.wfile.write(bytes(self.Page, "utf-8"))
+        self.wfile.write(bytes(self.Page, "utf-8"))  # convert string to bytes
 
 
 if __name__ == '__main__':
