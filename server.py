@@ -24,8 +24,32 @@ class RequestHandler(BaseHTTPRequestHandler):
     def do_GET(self):  # This method is called when the HTTP method is GET
         '''Overide of the do_GET() method in BaseRequestHandler
         '''
-        page = self.create_page()
-        self.send_page(page)
+        try:
+            # figure out exactly what is requested
+            full_path = os.getcwd() + self.path
+
+            # it does does not exist....
+            if not os.path.exists(full_path):
+                ServerException{"{} not found".format(self.path)}
+
+            # ...it's a file...
+            elif os.path.isfile(full_path):
+                self.handle_file(full_path)
+
+            # ...it's something we don't handle
+            else:
+                raise ServerException("Unknown Object {}".format(self.path))
+        # handle errors
+        except Exception as msg:
+            self.handle_errors(msg)
+
+    def handle_file(self):
+        try:
+            with open(full_path, 'rb') as reader:
+                content = reader.read()
+            self.send_content(content)
+        except IOError as msg:
+            msg = "'{0}' cannot bee read: {1}".format(self.path, msg)
 
     def create_page(self):
         '''This is where we fill in the formatting placeholders
