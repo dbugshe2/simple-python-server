@@ -1,4 +1,5 @@
 from http.server import HTTPServer, BaseHTTPRequestHandler
+import os
 
 
 class RequestHandler(BaseHTTPRequestHandler):
@@ -20,6 +21,15 @@ class RequestHandler(BaseHTTPRequestHandler):
 </html>
 '''
 
+    Error_Page = """\
+    <html>
+    <body>
+    <h1>Error Accessing {path} </h1>
+    <p>{msg}</p>
+    </body>
+    </html>
+    """
+
     # Handle a GET request
     def do_GET(self):  # This method is called when the HTTP method is GET
         '''Overide of the do_GET() method in BaseRequestHandler
@@ -30,7 +40,7 @@ class RequestHandler(BaseHTTPRequestHandler):
 
             # it does does not exist....
             if not os.path.exists(full_path):
-                ServerException{"{} not found".format(self.path)}
+                ServerException("{} not found".format(self.path))
 
             # ...it's a file...
             elif os.path.isfile(full_path):
@@ -50,6 +60,10 @@ class RequestHandler(BaseHTTPRequestHandler):
             self.send_content(content)
         except IOError as msg:
             msg = "'{0}' cannot bee read: {1}".format(self.path, msg)
+
+    def handle_error(self, msg):
+        content = self.Error_Page.format(path=self.path, msg=msg)
+        self.send_content(content)
 
     def create_page(self):
         '''This is where we fill in the formatting placeholders
