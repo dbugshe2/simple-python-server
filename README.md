@@ -12,3 +12,4 @@ __Note: in this line `with open(full_path, 'rb') as reader:` we ar opening the f
 __also in this example we read the whole file into memory this a bad idea in real life, because the file could be very seceral gigabytes large, but that is beyond the scope of this example__
 
 - Then we write an error handling method `handle_error()` and, the template for the error reporting page
+- Our prevous version of the server always returns a status code 200 even when th epage rewusted doesn't exist, so `handle_error()` and `send_content()` to let the browser know when the page doesn't exist
