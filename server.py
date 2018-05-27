@@ -7,8 +7,43 @@ class ServerException(Exception):
     pass
 
 
+class case_no_file(object):
+    '''File or Directory does not exixts'''
+
+    def test(self, handler):
+        return not os.path.exists(handler.full_path)
+
+    def act(self, handler):
+        raise ServerException("'{0}' not found".format(handler.path))
+
+
+class case_existing_file(object):
+    '''File exists'''
+
+    def test(self, handler):
+        return os.path.isfile(handler.full_path)
+
+    def act(self, handler):
+        handler.handle_file(handler.full_path)
+
+
+class case_always_fail(object):
+    '''Base case if nothing else worked.'''
+
+    def test(self, handler):
+        return True
+
+    def act(self, handler):
+        raise ServerException("Unknown Object '{0}'".format(handler.path))
+
+
 class RequestHandler(BaseHTTPRequestHandler):
-    '''handle HTTP request by returning a fixed 'page'. '''
+    '''If the requested path maps to a file, the file is served
+    if anythiing goes wrong an error page is constructed.
+    '''
+    Cases = [case_no_file(),
+             case_existing_file(),
+             case_always_fail()]
 
     Error_Page = """\
     <html>
@@ -24,19 +59,13 @@ class RequestHandler(BaseHTTPRequestHandler):
         '''Overide of the do_GET() method in BaseRequestHandler'''
         try:
             # figure out exactly what is requested
-            full_path = os.getcwd() + self.path
+            self.full_path = os.getcwd() + self.path
 
-            # it does does not exist....
-            if not os.path.exists(full_path):
-                raise ServerException("file at{0} not found".format(self.path))
-
-            # ...it's a file...
-            elif os.path.isfile(full_path):
-                self.handle_file(full_path)
-
-            # ...it's something we don't handle
-            else:
-                raise ServerException("Unknown Object {0}".format(self.path))
+            # figure out how to handle it
+            for case in self.Cases:
+                if case.test(self):
+                    case.act(self)
+                    break
         # handle errors
         except Exception as msg:
             self.handle_error(msg)

@@ -1,15 +1,18 @@
-# Serving Static pages
+# Listing Directories
 
-In this version, the web server serves pages from the disk instead of generating them on the fly.
+In this version, the web server will display the listing of a directory's content when the path in the URL points to a directory rather than a file.
 
-- first we rewrite the do_GET() method from the previous version.
-    + firt we assume that it's allowed to serve any file inside or below the directory that our server (`server.py`) is running from,
-    + then to the path to the file the user wants, we find the full path (`full_path`) of the requested file by combining the path where the server is running from which is provided by`os.getcwd` with the path provided by the URL which the library automatically puts in `self.path`(and which always starts with a leading `/`)
-    + if the file dosen't exist, or if it isn't a file, the method reports an error by raising and catching an exception
-    + if matches a file, it calls a helper method named `handle_file()` to read and return the contents the file (this method jsut reads the file and sends it using the existing `send_content()` method to send it back to the client).
-__Note: in this line `with open(full_path, 'rb') as reader:` we ar opening the file in binary mode (the 'b' in `rb`) which means that python won't alterbyte sequences that look like a windows line ending__
+It can also be modified to look in that directory for an index.html file to display, and only show a listing of the directory's contents if that file is not present.
 
-__also in this example we read the whole file into memory this a bad idea in real life, because the file could be very seceral gigabytes large, but that is beyond the scope of this example__
+But building these rules into do_GET would be a mistake, since the resulting method would be a long tangle of if statements controlling special behaviors. The right solution is to step back and solve the general problem, which is figuring out what to do with a URL. Here's a rewrite of the do_GET method:
 
-- Then we write an error handling method `handle_error()` and, the template for the error reporting page
-- Our prevous version of the server always returns a status code 200 even when th epage rewusted doesn't exist, so `handle_error()` and `send_content()` to let the browser know when the page doesn't exist
+## What has changed
+- first we after figure out the full of the thing being requested(like in the previous version)
+- then we loop over a set of cases stored in a list (created at the top of `RequestHandler`). Each case is an object with two methods
+    + `test()` which tells us whether it able to handle the request
+    + and `act()` which actually takes some action
+- as soon as the right case is found, it handles the request and we break out of the loop
+- There are three case classes that reproduce the behavior of our perevious server version
+    + `case_no_file` - The File or directory does noto exist
+    + `case_existing_file` - The File exists
+    + `case_always_fail` - Base case for if nothing else works
