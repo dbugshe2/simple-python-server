@@ -1,10 +1,34 @@
-# Listing Directories
+# Common Gateway Interface (CGI) Protocol
+in order to add new functionality to a server, servers have always supported a mechanism called the Common Gateway Interface (CGI), which provides a standard way for a web server to run an external program in order to satisfy a request.
 
-In this version, the web server will display the listing of a directory's content when the path in the URL points to a directory rather than a file.
+For example, suppose we want the server to be able to display the local time in an HTML page. We can do this in a standalone program with just a few lines of code:
 
-It can also be modified to look in that directory for an index.html file to display, and only show a listing of the directory's contents if that file is not present.
+    from datetime import datetime
+    print ('''\
+    <html>
+    <body>
+    <p>Generated {0}</p>
+    </body>
+    </html>''').format(datetime.now())
 
-But building these rules into do_GET would be a mistake, since the resulting method would be a long tangle of if statements controlling special behaviors. The right solution is to step back and solve the general problem, which is figuring out what to do with a URL. Here's a rewrite of the do_GET method:
+In order to get the web server to run this program for us, we add a handler represented as the method `case_cgi_file` which tests if the path ends with `.py` then it acts by telling `RequestHandler`  to run it. This is generally acheived through the following core steps.
+
+### Core Ideas
+
+1. Run the program in a subprocess.
+2. Capture whatever that subprocess sends to standard output.
+3. Send that back to the client that made the request.
+
+The full CGI protocol is much richer than this
+
+But just doing that is very insecure because,  if someone knows the path to a Python file on our server, we're just letting them run it without worrying about what data it has access to, whether it might contain an infinite loop, or anything else.
+
+## Cleaning up
+Our `RequestHandler` class is becoming quite tangled  initially had one method, handle_file, for dealing with content. We have now added two special cases in the form of list_dir and run_cgi, These three methods don't really belong where they are, since they're primarily used by other classes.
+
+a straightforward way to fix this is to:
+- create a parent class `base_case` for all our case handlers, and
+- move other methods to that class if (and only if) they are shared by two or more handlers. 
 
 ## What has changed
 - first we after figure out the full of the thing being requested(like in the previous version)
